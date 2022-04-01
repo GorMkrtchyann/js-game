@@ -8,6 +8,13 @@
 }
 
 body {
+  background: linear-gradient(144deg, #090979 28%, #580191 100%);
+}
+
+.body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -17,13 +24,13 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  min-height: 100vh;
-  background: linear-gradient(144deg, #090979 28%, #580191 100%);
 }
 
 .start-game {
+  width: 500px;
   -webkit-animation: open 1s 0s forwards;
           animation: open 1s 0s forwards;
+  text-align: center;
 }
 
 .start-game button {
@@ -83,11 +90,11 @@ body {
 }
 
 .game-info-level h2 {
-  font-size: 1.6vw;
+  font-size: 25px;
 }
 
 .game-info-level p {
-  font-size: 1vw;
+  font-size: 14px;
 }
 
 .game-info-level .info {
@@ -244,6 +251,68 @@ body {
   100% {
     opacity: 0;
   }
+}
+
+.finish-back {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  z-index: 10;
+  -webkit-animation: open 1s 0s forwards;
+          animation: open 1s 0s forwards;
+  display: none;
+}
+
+.finish-back a {
+  color: #000;
+  text-decoration: none;
+}
+
+.finish-back .finish-game {
+  background: #fff;
+  height: 150px;
+  width: 400px;
+  padding: 20px;
+  text-align: center;
+  text-transform: capitalize;
+  border-radius: 20px;
+  right: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 50%;
+  position: absolute;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.finish-back .finish-game h2 {
+  line-height: 50px;
+}
+
+.finish-back .finish-game i {
+  margin-right: 5px;
+}
+
+.finish-back .finish-game p {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+  line-height: 27px;
+}
+
+.finish-back .finish-game p:hover {
+  letter-spacing: 3px;
 }
 
 .wrapper {
@@ -820,10 +889,6 @@ body {
 
 .wrapper3 .card .back-view p.op, .wrapper3 .card .back-view p.hava {
   font-size: 13px;
-}
-
-.wrapper3 .card .back-view p.com {
-  color: red;
 }
 
 .wrapper3 .card .back-view p.ver {

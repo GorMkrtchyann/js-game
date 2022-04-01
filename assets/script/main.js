@@ -23,17 +23,17 @@ function flipCard({target: clickedCard}) {
 
 function matchCards(img1, img2) {
     let info = document.querySelectorAll('.info');
-    for(elem of info){
         if(img1 === img2) {
             matched++;
             if(matched == 8) {
                 setTimeout(() => {
+                    let finishWind = document.querySelector('.finish-back');
+                    finishWind.style.display = 'block';
                     return shuffleCard();
                 }, 1000);
             }
             cardOne.removeEventListener("click", flipCard);
             cardTwo.removeEventListener("click", flipCard);
-            elem.style.display = 'block';
             cardOne = cardTwo = "";
             return disableDeck = false;
         }
@@ -47,9 +47,7 @@ function matchCards(img1, img2) {
             cardTwo.classList.remove("shake", "flip");
             cardOne = cardTwo = "";
             disableDeck = false;
-        }, 3000);
-    }
-    
+        }, 2000);   
 }
 
 function shuffleCard() {
@@ -74,10 +72,10 @@ cards.forEach(card => {
 }
 
 function level2(){
-    const cards = document.querySelectorAll(".card"),
-    timeTag = document.querySelector(".time b"),
-    flipsTag = document.querySelector(".flips b"),
-    refreshBtn = document.querySelector(".details button");
+    const cards = document.querySelectorAll(".wrapper2 .card"),
+    timeTag = document.querySelector(".wrapper2 .time b"),
+    flipsTag = document.querySelector(".wrapper2 .flips b"),
+    refreshBtn = document.querySelector(".wrapper2 .details button");
 
     let maxTime = 60;
     let timeLeft = maxTime;
@@ -109,8 +107,8 @@ function level2(){
             }
             cardTwo = clickedCard;
             disableDeck = true;
-            let cardOneImg = cardOne.querySelector(".back-view img").src,
-            cardTwoImg = cardTwo.querySelector(".back-view img").src;
+            let cardOneImg = cardOne.querySelector(".wrapper2 .back-view img").src,
+            cardTwoImg = cardTwo.querySelector(".wrapper2 .back-view img").src;
             matchCards(cardOneImg, cardTwoImg);
         }
     }
@@ -118,7 +116,9 @@ function level2(){
     function matchCards(img1, img2) {
         if(img1 === img2) {
             matchedCard++;
-            if(matchedCard == 6 && timeLeft > 0) {
+            if(matchedCard == 12 && timeLeft > 0) {
+                let finishWind = document.querySelector('.wrapper2 .finish-back');
+                finishWind.style.display = 'block';
                 return clearInterval(timer);
             }
             cardOne.removeEventListener("click", flipCard);
@@ -154,7 +154,7 @@ function level2(){
 
         cards.forEach((card, index) => {
             card.classList.remove("flip");
-            let imgTag = card.querySelector(".back-view");
+            let imgTag = card.querySelector(".wrapper2 .back-view");
             setTimeout(() => {
                 imgTag.src = `images/img-${arr[index]}.png`;
             }, 500);
@@ -216,6 +216,8 @@ function level3(){
         if(img1 === img2) {
             matchedCard++;
             if(matchedCard == 16 && timeLeft > 0) {
+                let finishWind = document.querySelector('.finish-back');
+                finishWind.style.display = 'block';
                 return clearInterval(timer);
             }
             cardOne.removeEventListener("click", flipCard);
@@ -311,6 +313,15 @@ document.querySelector('#level-tree-game .fa-arrow-left').addEventListener("clic
     document.querySelector('.game-info-level').style.display = 'block'
     document.querySelector('.start-game').style.display = 'none'
     document.querySelector('#level-tree-game').style.display = 'none'
+});
+
+
+
+document.querySelector('#finish-back-but').addEventListener("click", function(){
+    document.querySelector('.game-info-level').style.display = 'block'
+    document.querySelector('.start-game').style.display = 'none'
+    document.querySelector('.finish-back').style.display = 'none'
+    document.querySelector('.levell').style.display = 'none'
 });
 
 
