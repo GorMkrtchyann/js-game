@@ -988,6 +988,9 @@ body {
     height: 300px;
     width: 300px;
   }
+  .levell .cards .card .back-view p {
+    font-size: 9px;
+  }
   .levell .card .front-view img {
     width: 15px;
   }
