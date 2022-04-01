@@ -1,6 +1,6 @@
 
 function level1(){
-    const cards = document.querySelectorAll(".card");
+    const cards = document.querySelectorAll(".wrapper .card");
 
 let matched = 0;
 let cardOne, cardTwo;
@@ -14,8 +14,8 @@ function flipCard({target: clickedCard}) {
         }
         cardTwo = clickedCard;
         disableDeck = true;
-        let cardOneImg = cardOne.querySelector(".back-view img").src,
-        cardTwoImg = cardTwo.querySelector(".back-view img").src;
+        let cardOneImg = cardOne.querySelector(".wrapper .back-view img").src,
+        cardTwoImg = cardTwo.querySelector(".wrapper .back-view img").src;
         matchCards(cardOneImg, cardTwoImg);
     }
 }
@@ -58,7 +58,7 @@ function shuffleCard() {
     arr.sort(() => Math.random() > 0.5 ? 1 : -1);
     cards.forEach((card, i) => {
         card.classList.remove("flip");
-        let imgTag = card.querySelector(".back-view");
+        let imgTag = card.querySelector(".wrapper .back-view");
         imgTag.src = `images/img-${arr[i]}.png`;
         card.addEventListener("click", flipCard);
     });
@@ -116,8 +116,8 @@ function level2(){
     function matchCards(img1, img2) {
         if(img1 === img2) {
             matchedCard++;
-            if(matchedCard == 12 && timeLeft > 0) {
-                let finishWind = document.querySelector('.wrapper2 .finish-back');
+            if(matchedCard == 6 && timeLeft > 0) {
+                let finishWind = document.querySelector('.finish-back');
                 finishWind.style.display = 'block';
                 return clearInterval(timer);
             }
@@ -318,10 +318,12 @@ document.querySelector('#level-tree-game .fa-arrow-left').addEventListener("clic
 
 
 document.querySelector('#finish-back-but').addEventListener("click", function(){
+    for(elem of document.querySelectorAll('.levell')){
     document.querySelector('.game-info-level').style.display = 'block'
     document.querySelector('.start-game').style.display = 'none'
     document.querySelector('.finish-back').style.display = 'none'
-    document.querySelector('.levell').style.display = 'none'
+    elem.style.display = 'none'
+    }
 });
 
 
