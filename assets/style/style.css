@@ -955,29 +955,50 @@ body {
   background: #6563ff;
 }
 
-@media screen and (max-width: 700px) {
-  .wrapper .cards {
+@media screen and (max-width: 768px) {
+  .body {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .game-info-level {
+    top: 450px;
+    width: 330px;
+    padding-bottom: 50px;
+  }
+  .game-info-level .game-level {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .levell .cards {
     height: 350px;
     width: 350px;
   }
-  .wrapper .card .front-view img {
+  .levell .card .front-view img {
     width: 17px;
   }
-  .wrapper .card .back-view img {
+  .levell .card .back-view img {
     max-width: 40px;
   }
 }
 
 @media screen and (max-width: 530px) {
-  .wrapper .cards {
+  .levell .cards {
     height: 300px;
     width: 300px;
   }
-  .wrapper .card .front-view img {
+  .levell .card .front-view img {
     width: 15px;
   }
-  .wrapper .card .back-view img {
+  .levell .card .back-view img {
     max-width: 35px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .start-game img {
+    width: 270px;
   }
 }
 /*# sourceMappingURL=style.css.map */

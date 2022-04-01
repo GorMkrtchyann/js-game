@@ -568,8 +568,17 @@ body
         color: #fff
         background: #6563ff
 
-@media screen and (max-width: 700px)
-  .wrapper 
+@media screen and (max-width: 768px)
+  .body
+    overflow-y: scroll
+    overflow-x: hidden
+  .game-info-level
+    top: 450px
+    width: 330px
+    padding-bottom: 50px
+    .game-level
+      flex-direction: column
+  .levell 
     .cards
       height: 350px
       width: 350px
@@ -581,7 +590,7 @@ body
       max-width: 40px
   
 @media screen and (max-width: 530px) 
-  .wrapper 
+  .levell 
     .cards
       height: 300px
       width: 300px
@@ -591,4 +600,9 @@ body
 
     .card .back-view img
       max-width: 35px
+@media screen and (max-width: 375px)
+  .start-game
+    img
+      width: 270px
+  
 
